@@ -1,0 +1,20 @@
+POST /index.html?address=shanghai HTTP/1.1
+Content-Type: multipart/form-data; boundary=--------------------------173685006863255565976634
+User-Agent: PostmanRuntime/7.19.0
+Accept: */*
+Cache-Control: no-cache
+Postman-Token: 1098d4c0-6162-44cb-a1fe-4ebbb2929ba3
+Host: 123.56.12.53
+Accept-Encoding: gzip, deflate
+Content-Length: 28914
+Connection: keep-alive
+
+----------------------------173685006863255565976634
+Content-Disposition: form-data; name="name"
+
+jack
+
+----------------------------173685006863255565976634
+Content-Disposition: form-data; name="file"; filename="1024025.jpg"
+Content-Type: image/jpeg
+
