@@ -122,59 +122,32 @@ pthread/fast:
 	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/build
 .PHONY : pthread/fast
 
-cJSON.obj: cJSON.c.obj
+console.obj: console.c.obj
 
-.PHONY : cJSON.obj
-
-# target to build an object file
-cJSON.c.obj:
-	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/cJSON.c.obj
-.PHONY : cJSON.c.obj
-
-cJSON.i: cJSON.c.i
-
-.PHONY : cJSON.i
-
-# target to preprocess a source file
-cJSON.c.i:
-	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/cJSON.c.i
-.PHONY : cJSON.c.i
-
-cJSON.s: cJSON.c.s
-
-.PHONY : cJSON.s
-
-# target to generate assembly for a file
-cJSON.c.s:
-	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/cJSON.c.s
-.PHONY : cJSON.c.s
-
-json.obj: json.c.obj
-
-.PHONY : json.obj
+.PHONY : console.obj
 
 # target to build an object file
-json.c.obj:
-	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/json.c.obj
-.PHONY : json.c.obj
+console.c.obj:
+	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/console.c.obj
+.PHONY : console.c.obj
 
-json.i: json.c.i
+console.i: console.c.i
 
-.PHONY : json.i
+.PHONY : console.i
 
 # target to preprocess a source file
-json.c.i:
-	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/json.c.i
-.PHONY : json.c.i
+console.c.i:
+	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/console.c.i
+.PHONY : console.c.i
 
-json.s: json.c.s
+console.s: console.c.s
 
-.PHONY : json.s
+.PHONY : console.s
 
 # target to generate assembly for a file
-json.c.s:
-	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/json.c.s
-.PHONY : json.c.s
+console.c.s:
+	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/console.c.s
+.PHONY : console.c.s
 
 # Help Target
 help:
@@ -185,12 +158,9 @@ help:
 	@echo ... pthread
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... cJSON.obj
-	@echo ... cJSON.i
-	@echo ... cJSON.s
-	@echo ... json.obj
-	@echo ... json.i
-	@echo ... json.s
+	@echo ... console.obj
+	@echo ... console.i
+	@echo ... console.s
 .PHONY : help
 
 

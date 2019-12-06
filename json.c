@@ -18,9 +18,13 @@ struct talks{
 //https://www.cnblogs.com/do-your-best/p/11007435.html
 //gcc inline
 //https://www.jianshu.com/p/21aef14340a8
+//取消字节对齐https://blog.csdn.net/u012308586/article/details/90751116 __attribute__((packed)) 占用多少就是多少
+//对齐会增大存储空间
 #define FIO_INLINE static inline  __attribute__((unused))
 
 FIO_INLINE int test(void){return 1+2;}
+
+typedef uintptr_t FIO;
 int main()
 {
     char text1[]="{\n\"name\": \"Jack (\\\"Bee\\\") Nimble\", \n\"format\": {\"type\":       \"rect\", \n\"width\":      1920, \n\"height\":     1080, \n\"interlace\":  false,\"frame rate\": 24\n}\n}";
@@ -28,6 +32,11 @@ int main()
 
     printf("%d\n",test());
 
+    FIO a = 100;
+    printf("%d,%d\n",a, sizeof(a));
+
+    FIO b = "hello";
+    printf("%s,%d\n",b, sizeof(b));
 //    json=cJSON_Parse(text1); json解析
 //    if (!json) {printf("Error before: [%s]\n",cJSON_GetErrorPtr());}
 //    else

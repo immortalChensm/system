@@ -6,15 +6,9 @@
 
 #IncludeRegexTransform: 
 
-E:/c/system/console.c
-stdlib.h
+E:/c/system/console.cpp
+Windows.h
 -
-stdio.h
--
-time.h
--
-string.h
--
-stdarg.h
+iostream
 -
 

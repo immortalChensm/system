@@ -82,13 +82,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="E:/c/system/cJSON.c">
-			<Option target="pthread"/>
-		</Unit>
-		<Unit filename="E:/c/system/cJSON.h">
-			<Option target="pthread"/>
-		</Unit>
-		<Unit filename="E:/c/system/json.c">
+		<Unit filename="E:/c/system/console.c">
 			<Option target="pthread"/>
 		</Unit>
 		<Unit filename="E:/c/system/CMakeLists.txt">

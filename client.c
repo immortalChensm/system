@@ -146,7 +146,7 @@ void http_request(char *text)
     strcpy(dest,"command-");
     strcat(dest,content);
     printf("%s\n",dest);
-    sprintf(str,"POST / HTTP/1.1\nUser-Agent: jackcsm\nContent-Type: application/x-www-form-urlencoded \nContent-Length: %d\r\n\r\n%s",strlen(dest)+1,dest);
+    sprintf(str,"GET / HTTP/1.1\nUser-Agent: jackcsm\nContent-Type: application/x-www-form-urlencoded \nContent-Length: %d\r\n\r\n%s",strlen(dest)+1,dest);
 
     //printf("%s\n",str);
     send(sock, str, strlen(str)+sizeof(char), NULL);
@@ -169,38 +169,41 @@ void http_request(char *text)
 }
 int main(){
 
-    printf("welcome to use http client,input some data then the server will response your request\n");
-    char message[100];
-    system("chcp 65001");
-    char *menu = " +----------------------------------------------------------------------+\n"
-                 " | simple talk framework                                                |\n"
-                 " +----------------------------------------------------------------------+\n"
-                 " |       login and talk with your friends                               |\n"
-                 " |                                                                      |\n"
-                 " |       search-friends[1] add-friend[2]             remove-friend[3]   |\n"
-                 " |       my-friends[4]     friend-profile[5]         my-profile[6]      |\n"
-                 " |                                                                      |\n"
-                 " |                                                                      |\n"
-                 " |                                                                      |\n"
-                 " +----------------------------------------------------------------------+\n"
-                 " | exit[Q]                                                              |\n"
-                 " +----------------------------------------------------------------------+";
-    printf("\r\n%s\n",menu);
-    while (1){
+//    printf("welcome to use http client,input some data then the server will response your request\n");
+//    char message[100];
+//    system("chcp 65001");
+//    char *menu = " +----------------------------------------------------------------------+\n"
+//                 " | simple talk framework                                                |\n"
+//                 " +----------------------------------------------------------------------+\n"
+//                 " |       login and talk with your friends                               |\n"
+//                 " |                                                                      |\n"
+//                 " |       search-friends[1] add-friend[2]             remove-friend[3]   |\n"
+//                 " |       my-friends[4]     friend-profile[5]         my-profile[6]      |\n"
+//                 " |                                                                      |\n"
+//                 " |                                                                      |\n"
+//                 " |                                                                      |\n"
+//                 " +----------------------------------------------------------------------+\n"
+//                 " | exit[Q]                                                              |\n"
+//                 " +----------------------------------------------------------------------+";
+//    printf("\r\n%s\n",menu);
+//    while (1){
+//
+//        printf(">");
+//        scanf("%s",message);
+//        if (strcasecmp(message,"Q")==0){
+//            break;
+//        }
+//        if (message){
+//            http_request(message);
+//            memset(message,0, sizeof(message));
+//        }
+//    }
+//    char *source = "中国人";
+//    char dest[100];
 
-        printf(">");
-        scanf("%s",message);
-        if (strcasecmp(message,"Q")==0){
-            break;
-        }
-        if (message){
-            http_request(message);
-            memset(message,0, sizeof(message));
-        }
-    }
-    char *source = "中国人";
-    char dest[100];
-
+    int a = 0b10001111;//0000 0000 10001111
+    printf("a=%X\n",a);
+    printf("a=%X\n",a<<1);//0000 0001 0001 1110
 
     return 0;
 }

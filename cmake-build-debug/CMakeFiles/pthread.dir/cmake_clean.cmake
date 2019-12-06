@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/pthread.dir/json.c.obj"
-  "CMakeFiles/pthread.dir/cJSON.c.obj"
+  "CMakeFiles/pthread.dir/console.c.obj"
   "pthread.pdb"
   "pthread.exe"
   "pthread.exe.manifest"
