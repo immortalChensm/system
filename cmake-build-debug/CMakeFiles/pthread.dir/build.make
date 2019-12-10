@@ -56,27 +56,27 @@ include CMakeFiles/pthread.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/pthread.dir/flags.make
 
-CMakeFiles/pthread.dir/console.c.obj: CMakeFiles/pthread.dir/flags.make
-CMakeFiles/pthread.dir/console.c.obj: ../console.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\c\system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/pthread.dir/console.c.obj"
-	C:\TDM-GCC-64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\pthread.dir\console.c.obj   -c E:\c\system\console.c
+CMakeFiles/pthread.dir/client.c.obj: CMakeFiles/pthread.dir/flags.make
+CMakeFiles/pthread.dir/client.c.obj: ../client.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\c\system\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/pthread.dir/client.c.obj"
+	C:\TDM-GCC-64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\pthread.dir\client.c.obj   -c E:\c\system\client.c
 
-CMakeFiles/pthread.dir/console.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pthread.dir/console.c.i"
-	C:\TDM-GCC-64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\c\system\console.c > CMakeFiles\pthread.dir\console.c.i
+CMakeFiles/pthread.dir/client.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pthread.dir/client.c.i"
+	C:\TDM-GCC-64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\c\system\client.c > CMakeFiles\pthread.dir\client.c.i
 
-CMakeFiles/pthread.dir/console.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pthread.dir/console.c.s"
-	C:\TDM-GCC-64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\c\system\console.c -o CMakeFiles\pthread.dir\console.c.s
+CMakeFiles/pthread.dir/client.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pthread.dir/client.c.s"
+	C:\TDM-GCC-64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\c\system\client.c -o CMakeFiles\pthread.dir\client.c.s
 
 # Object files for target pthread
 pthread_OBJECTS = \
-"CMakeFiles/pthread.dir/console.c.obj"
+"CMakeFiles/pthread.dir/client.c.obj"
 
 # External object files for target pthread
 pthread_EXTERNAL_OBJECTS =
 
-pthread.exe: CMakeFiles/pthread.dir/console.c.obj
+pthread.exe: CMakeFiles/pthread.dir/client.c.obj
 pthread.exe: CMakeFiles/pthread.dir/build.make
 pthread.exe: CMakeFiles/pthread.dir/linklibs.rsp
 pthread.exe: CMakeFiles/pthread.dir/objects1.rsp

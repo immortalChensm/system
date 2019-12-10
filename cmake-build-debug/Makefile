@@ -110,44 +110,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named pthread
+# Target rules for targets named client
 
 # Build rule for target.
-pthread: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 pthread
-.PHONY : pthread
+client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 client
+.PHONY : client
 
 # fast build rule for target.
-pthread/fast:
-	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/build
-.PHONY : pthread/fast
+client/fast:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
 
-console.obj: console.c.obj
+client.obj: client.c.obj
 
-.PHONY : console.obj
+.PHONY : client.obj
 
 # target to build an object file
-console.c.obj:
-	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/console.c.obj
-.PHONY : console.c.obj
+client.c.obj:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client.c.obj
+.PHONY : client.c.obj
 
-console.i: console.c.i
+client.i: client.c.i
 
-.PHONY : console.i
+.PHONY : client.i
 
 # target to preprocess a source file
-console.c.i:
-	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/console.c.i
-.PHONY : console.c.i
+client.c.i:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client.c.i
+.PHONY : client.c.i
 
-console.s: console.c.s
+client.s: client.c.s
 
-.PHONY : console.s
+.PHONY : client.s
 
 # target to generate assembly for a file
-console.c.s:
-	$(MAKE) -f CMakeFiles\pthread.dir\build.make CMakeFiles/pthread.dir/console.c.s
-.PHONY : console.c.s
+client.c.s:
+	$(MAKE) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/client.c.s
+.PHONY : client.c.s
 
 # Help Target
 help:
@@ -155,12 +155,12 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... pthread
+	@echo ... client
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... console.obj
-	@echo ... console.i
-	@echo ... console.s
+	@echo ... client.obj
+	@echo ... client.i
+	@echo ... client.s
 .PHONY : help
 
 

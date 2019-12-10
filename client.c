@@ -6,10 +6,12 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <WinSock2.h>
+#include <pthread.h>
 
 
 #pragma comment(lib, "ws2_32.lib")  //加载 ws2_32.dll
-
+void *show(void*arg);
+pthread_mutex_t mutex;
 #define NON_NUM '0'
 
 int hex2num(char c)
@@ -137,29 +139,47 @@ void http_request(char *text)
     sockAddr.sin_port = htons(2347);
     connect(sock, (SOCKADDR*)&sockAddr, sizeof(SOCKADDR));
 
-    char str[1024*3];
-    char content[100];
-    char dest[105];
-    char *texts = text;
-    URLEncode(texts,strlen(texts),content,100);
+    //char str[1024*3];
+    char message[1024] = {0};
+    //char dest[105];
+    //char *texts = text;
+    //URLEncode(texts,strlen(texts),content,100);
 
-    strcpy(dest,"command-");
-    strcat(dest,content);
-    printf("%s\n",dest);
-    sprintf(str,"GET / HTTP/1.1\nUser-Agent: jackcsm\nContent-Type: application/x-www-form-urlencoded \nContent-Length: %d\r\n\r\n%s",strlen(dest)+1,dest);
+    //strcpy(dest,"command-");
+    //strcat(dest,content);
+    //printf("%s\n",dest);
+    //sprintf(str,"GET / HTTP/1.1\nUser-Agent: jackcsm\nContent-Type: application/x-www-form-urlencoded \nContent-Length: %d\r\n\r\n%s",strlen(dest)+1,dest);
 
     //printf("%s\n",str);
-    send(sock, str, strlen(str)+sizeof(char), NULL);
+    //send(sock, str, strlen(text)+sizeof(char), NULL);
 
     //接收服务器传回的数据
     char szBuffer[MAXBYTE] = {0};
     recv(sock, szBuffer, MAXBYTE, NULL);
-
-    char source[1024];
-    URLDecode(szBuffer,strlen(szBuffer),source,1024);
+    printf("Message form server: %s\n", szBuffer);
+    pthread_t tid;
+    pthread_create(&tid,NULL,show,(void*)sock);
+    while (1){
+        pthread_mutex_lock(&mutex);
+        printf(">");
+        scanf("%s",message);
+        if (strcasecmp(message,"Q")==0){
+            break;
+        }
+        if (message){
+            message[strlen(message)] = '\0';
+            send(sock, message, strlen(message), NULL);
+            memset(message,0, sizeof(message));
+        }
+        pthread_mutex_unlock(&mutex);
+    }
+    void *res;
+    pthread_join(tid,&res);
+    //char source[1024];
+    //URLDecode(szBuffer,strlen(szBuffer),source,1024);
     //输出接收到的数据
 
-    printf("Message form server: %s\n", source);
+    //printf("Message form server: %s\n", szBuffer);
     //关闭套接字
     closesocket(sock);
     //终止使用 DLL
@@ -167,25 +187,43 @@ void http_request(char *text)
     system("pause");
 
 }
+
+void *show(void*arg)
+{
+
+    int fd = (int)arg;
+    char szBuffer[MAXBYTE] = {0};
+    int len=0;
+    while(1){
+        pthread_mutex_lock(&mutex);
+        len = recv(fd, szBuffer, MAXBYTE, NULL);
+        if (len>0){
+            printf("Message form server: %s\n", szBuffer);
+        }
+        pthread_mutex_unlock(&mutex);
+    }
+
+}
 int main(){
 
-//    printf("welcome to use http client,input some data then the server will response your request\n");
-//    char message[100];
-//    system("chcp 65001");
-//    char *menu = " +----------------------------------------------------------------------+\n"
-//                 " | simple talk framework                                                |\n"
-//                 " +----------------------------------------------------------------------+\n"
-//                 " |       login and talk with your friends                               |\n"
-//                 " |                                                                      |\n"
-//                 " |       search-friends[1] add-friend[2]             remove-friend[3]   |\n"
-//                 " |       my-friends[4]     friend-profile[5]         my-profile[6]      |\n"
-//                 " |                                                                      |\n"
-//                 " |                                                                      |\n"
-//                 " |                                                                      |\n"
-//                 " +----------------------------------------------------------------------+\n"
-//                 " | exit[Q]                                                              |\n"
-//                 " +----------------------------------------------------------------------+";
-//    printf("\r\n%s\n",menu);
+    pthread_mutex_init(&mutex,NULL);
+    printf("welcome to use http client,input some data then the server will response your request\n");
+    char message[100];
+    system("chcp 65001");
+    char *menu = " +----------------------------------------------------------------------+\n"
+                 " | simple talk framework                                                |\n"
+                 " +----------------------------------------------------------------------+\n"
+                 " |       login and talk with your friends                               |\n"
+                 " |                                                                      |\n"
+                 " |       search-friends[1] add-friend[2]             remove-friend[3]   |\n"
+                 " |       my-friends[4]     friend-profile[5]         my-profile[6]      |\n"
+                 " |                                                                      |\n"
+                 " |                                                                      |\n"
+                 " |                                                                      |\n"
+                 " +----------------------------------------------------------------------+\n"
+                 " | exit[Q]                                                              |\n"
+                 " +----------------------------------------------------------------------+";
+    printf("\r\n%s\n",menu);
 //    while (1){
 //
 //        printf(">");
@@ -194,16 +232,16 @@ int main(){
 //            break;
 //        }
 //        if (message){
-//            http_request(message);
+            http_request("dd");
 //            memset(message,0, sizeof(message));
 //        }
 //    }
 //    char *source = "中国人";
 //    char dest[100];
-
-    int a = 0b10001111;//0000 0000 10001111
-    printf("a=%X\n",a);
-    printf("a=%X\n",a<<1);//0000 0001 0001 1110
-
+//
+//    int a = 0b10001111;//0000 0000 10001111
+//    printf("a=%X\n",a);
+//    printf("a=%X\n",a<<1);//0000 0001 0001 1110
+    pthread_mutex_destroy(&mutex);
     return 0;
 }

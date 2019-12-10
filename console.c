@@ -13,6 +13,11 @@ struct demo1
     char *name;//8个字节  内存对齐的话为16个字节
 };
 
+typedef struct bb{
+    struct bb *next;
+    struct bb *prev;
+}collections;
+
 //gcc 属性  表示  不进行对齐
 //http://blog.chinaunix.net/uid-25768133-id-3485479.html
 typedef enum __attribute__((packed)) {
@@ -112,8 +117,11 @@ int main() {
 
 
     //demo1();
-    int b = AveInt(2,3,4,5);
-    printf("b=%d\n",b);
+    //int b = AveInt(2,3,4,5);
+    //printf("b=%d\n",b);
+    collections a;
+    struct bb b;
+
    // randStr();
    //str();
    //fiobj_str.h line=133 FIOBJ fiobj_str_new(const char *str, size_t len) 函数的示例源码分析

@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/pthread.dir/console.c.obj"
+  "CMakeFiles/pthread.dir/client.c.obj"
   "pthread.pdb"
   "pthread.exe"
   "pthread.exe.manifest"
